@@ -2,9 +2,9 @@ let humanScore=0;
 let computerScore=0;
 
 function getComputerChoice() {
-    let x = Math.floor(Math.random() * 3) + 1;
+    let randomChoice = Math.floor(Math.random() * 3) + 1;
 
-    switch(x) {
+    switch(randomChoice) {
         case 1:
             return "Rock";
         case 2:
@@ -17,8 +17,8 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let x = prompt("Choose between Rock, Paper and Scissors!", "Your choice");
-    return x;
+    let choice = prompt("Choose between Rock, Paper and Scissors!", "Your choice");
+    return choice;
 }
 
 function playRound(humanChoice, computerChoice) {
