@@ -1,0 +1,85 @@
+html, body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    font-family: 'Roboto';
+    margin: 0;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(25, 25, 71);
+    color: white;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.scores {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 64px;
+}
+
+.scoreDiv {
+    display: flex;
+    flex-direction: column;
+    flex-direction: center;
+    align-items: center;
+}
+
+.scores #actualScores {
+    display: flex;
+    gap: 32px;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 64px;
+}
+
+.choiceContent {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding-bottom: 64px;
+}
+
+.playerChoiceContent {
+    display: flex;
+    padding-top: 32px;
+}
+
+.gameContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+}
+
+#playerChoice {
+    font-weight: 300;
+    font-style: italic;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(25, 25, 71);
+    padding: 36px;
+}

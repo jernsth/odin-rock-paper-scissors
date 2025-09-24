@@ -1,11 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="text/javascript" src="game.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <script type="text/javascript" src="game.js"></script>
+    <div id="header" class="header">
+        <h1>Rock, Paper, Scissors!</h1>
+    </div>
+    <div id="content" class="content">
+        <div class="scores">
+            <h2 id="scoresHeader">Scores</h2>
+            <div id="actualScores">
+                <div class="scoreDiv">
+                    <h3>CPU</h3>
+                    <a id="computerScore">0</a>
+                </div>
+                <div class="scoreDiv">
+                    <h3>Player</h3>
+                    <a id="playerScore">0</a>
+                </div>
+            </div>
+        </div>
+        <div class="choices">
+            <h2 id="choicesHeader">Play</h2>
+            <div class="choiceContent">
+                <div class="winner gameContent">
+                    <h3>CPU</h3>
+                    <div id="computerChoice">
+
+                    </div>
+                </div>
+                <div class="winner gameContent">
+                    <h3>Winner</h3>
+                    <div id="finalWinner">
+
+                    </div>
+                </div>
+                <div class="gameContent">
+                    <h3>Player</h3>
+                    <div id="playerChoice">
+                        nothing chosen, yet...
+                    </div>
+                    <div class="playerChoiceContent">
+                        <button id="btnRock">Rock</button>
+                        <button id="btnPaper">Paper</button>
+                        <button id="btnScissors">Scissors</button>
+                    </div>
+                </div>
+            </div>
+            <button id="btnPlay">Play</button>
+            <button id="btnReset">Reset All</button>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright &copy 2025 jernsth & theOdinProject
+    </div>
 </body>
 </html>

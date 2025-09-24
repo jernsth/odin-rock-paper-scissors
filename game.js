@@ -17,46 +17,81 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let choice = prompt("Choose between Rock, Paper and Scissors!", "Your choice");
+    let choice = document.querySelector("#playerChoice").textContent;
+    if(choice == "nothing chosen, yet...") {
+        return alert("Error. No option chosen.")
+    }
     return choice;
 }
 
 function playRound(humanChoice, computerChoice) {
     if (String(humanChoice).toLowerCase() === String(computerChoice).toLowerCase()) {
-        alert("Computer's choice: " + computerChoice);
-        alert("No winner!");
+        document.querySelector("#finalWinner").textContent = "Draw. No Winner!";   
     } else if (String(humanChoice).toLowerCase() === "rock" && String(computerChoice).toLowerCase() === "scissors") {
-        alert("Computer's choice: " + computerChoice);
-        alert("You win! Rock beats Scissors");
+        document.querySelector("#finalWinner").textContent = "You win!";
         humanScore++;
     } else if (String(humanChoice).toLowerCase() === "rock" && String(computerChoice).toLowerCase() === "paper") {
-        alert("Computer's choice: " + computerChoice);
-        alert("You lose! Paper beats Rock");
+        document.querySelector("#finalWinner").textContent = "CPU wins!";
         computerScore++;
     } else if (String(humanChoice).toLowerCase() === "paper" && String(computerChoice).toLowerCase() === "rock") {
-        alert("Computer's choice: " + computerChoice);
-        alert("You win! Paper beats Rock");
+        document.querySelector("#finalWinner").textContent = "You win!";
         humanScore++;
     } else if (String(humanChoice).toLowerCase() === "paper" && String(computerChoice).toLowerCase() === "scissors") {
-        alert("Computer's choice: " + computerChoice);
-        alert("You lose! Scissors beats Paper");
+        document.querySelector("#finalWinner").textContent = "CPU wins!";
         computerScore++;
     } else if (String(humanChoice).toLowerCase() === "scissors" && String(computerChoice).toLowerCase() === "paper") {
-        alert("Computer's choice: " + computerChoice);
-        alert("You win! Scissors beats Paper");
+        document.querySelector("#finalWinner").textContent = "You win!";
         humanScore++;
     } else if (String(humanChoice).toLowerCase() === "scissors" && String(computerChoice).toLowerCase() === "rock") {
-        alert("Computer's choice: " + computerChoice);
-        alert("You lose! Rock beats Scissors");
+        document.querySelector("#finalWinner").textContent = "CPU wins!";
         computerScore++;
     }
+    updateScores();
 }
 
-function playGame() {
-    for (let i = 0; i<5; i++) {
-        playRound(getHumanChoice(), getComputerChoice());
-    }
-    alert("Final Score: Player " + humanScore + " Computer: " + computerScore);
+function updateScores() {
+    document.querySelector("#playerScore").textContent = String(humanScore);
+    document.querySelector("#computerScore").textContent = String(computerScore);
 }
 
-playGame();
+const rockButton = document.querySelector("#btnRock");
+const paperButton = document.querySelector("#btnPaper");
+const scissorsButton = document.querySelector("#btnScissors");
+const playButton = document.querySelector("#btnPlay");
+const resetButton = document.querySelector("#btnReset");
+
+const playerChoiceField = document.querySelector("#playerChoice");
+const computerChoiceField = document.querySelector("#computerChoice");
+
+rockButton.addEventListener("click", () => {
+    playerChoiceField.textContent = "Rock";
+    computerChoiceField.textContent = " ";
+    document.querySelector("#finalWinner").textContent = " ";
+})
+
+paperButton.addEventListener("click", () => {
+    playerChoiceField.textContent = "Paper";
+    computerChoiceField.textContent = " ";
+    document.querySelector("#finalWinner").textContent = " ";
+})
+
+scissorsButton.addEventListener("click", () => {
+    playerChoiceField.textContent = "Scissors";
+    computerChoiceField.textContent = " ";
+    document.querySelector("#finalWinner").textContent = " ";
+})
+
+playButton.addEventListener("click", () => {
+    const computerChoice = getComputerChoice();
+    computerChoiceField.textContent = computerChoice;
+    playRound(computerChoice, getHumanChoice());
+})
+
+resetButton.addEventListener("click", () => {
+    humanScore=0;
+    computerScore=0;
+    computerChoiceField.textContent = " ";
+    document.querySelector("#finalWinner").textContent = " ";
+    playerChoiceField.textContent = "nothing chosen, yet..."
+    updateScores();
+})
